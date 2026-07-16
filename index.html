@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Robot Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+    <div class="scene-shell">
+      <canvas id="sceneCanvas"></canvas>
+
+      <div class="telemetry-panel">
+        <div class="panel-title">Telemetry</div>
+        <div class="telemetry-row"><span>Rover X</span><strong id="roverX">0.00</strong></div>
+        <div class="telemetry-row"><span>Rover Z</span><strong id="roverZ">0.00</strong></div>
+        <div class="telemetry-row"><span>Current Speed</span><strong id="speedValue">4</strong></div>
+        <div class="telemetry-row"><span>Nearest Obstacle</span><strong id="nearestObstacle">0.00</strong></div>
+      </div>
+
+      <div class="drive-panel">
+        <div class="panel-title">Drive Controls</div>
+        <div class="button-grid dpad-grid">
+          <button data-action="forward">Forward</button>
+          <button data-action="backward">Backward</button>
+          <button data-action="left">Left</button>
+          <button data-action="right">Right</button>
+        </div>
+
+        <label class="speed-control" for="speedSlider">
+          <span>Speed</span>
+          <input id="speedSlider" type="range" min="1" max="10" value="4" />
+        </label>
+      </div>
+
+      <div class="system-panel">
+        <div class="panel-title">System Controls</div>
+        <button data-action="stop" class="stop-button">Stop</button>
+        <button id="followCameraToggle" class="toggle-button" type="button">Camera Follow: On</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
